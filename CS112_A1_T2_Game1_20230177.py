@@ -1,0 +1,42 @@
+# File: CS112_A1_T2_Game1_20230177
+# Purpose: 100 game.Two players start from 0 and alternatively add a number from 1 to 10 to the sum.
+# The player who reaches 100 wins.
+# Author: Samaa Mehrez Abd El-Hameed Abd El-Reheem Khaled
+# ID: 20230177
+
+# Welcome message and Game description
+print('*******************\nWelcome to 100 Game\n*******************\nAbout this game:')
+print('Two players start from 0 and alternatively add a number from 1 to 10 to the sum.', end="")
+print('The player who reaches 100 wins.')
+
+# Game playing
+Sum = 0
+while Sum <= 100:
+    # Player 1 choice
+    number = int(input('player 1:choose a number from 1-10'))
+    while number > 10 or number < 1:
+        number = int(input('Wrong! player 1:please,choose a number from 1-10'))
+    Sum += number
+    while Sum > 100:
+        Sum -= number
+        number = int(input('Wrong! player 1:please,choose a number makes the sum <=100'))
+        Sum += number
+    # Display the status to users
+    print("Now the sum is:", Sum)
+    if Sum == 100:
+        print('Congratulations! player 1 won.')  # End of the Game
+        break
+    # Player 2 choice
+    number = int(input('player 2:choose a number from 1-10'))
+    while number > 10 or number < 1:
+        number = int(input('Wrong! player 2:please,choose a number from 1-10'))
+    Sum += number
+    while Sum > 100:
+        Sum -= number
+        number = int(input('Wrong! player 2:please,choose a number makes the sum <=100'))
+        Sum += number
+    # Update the status to users
+    print("Now the sum is:", Sum)
+    if Sum == 100:
+        print('Congratulations!,player 2 won.')  # End of the Game
+        break
